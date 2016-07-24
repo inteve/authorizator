@@ -18,4 +18,14 @@
 			}
 			return TRUE;
 		}
+
+
+		/**
+		 * @param  string
+		 * @throws AuthorizationException
+		 */
+		protected function error($message)
+		{
+			throw new AuthorizationException($message);
+		}
 	}
