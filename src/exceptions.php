@@ -3,11 +3,21 @@
 	namespace Inteve\Authorizator;
 
 
-	class InvalidArgumentException extends \InvalidArgumentException
+	class Exception extends \Exception
 	{
 	}
 
 
-	class AuthorizationException extends \RuntimeException
+	class AuthorizationException extends Exception
+	{
+	}
+
+
+	class InvalidArgumentException extends Exception
+	{
+	}
+
+
+	class InvalidValueException extends Exception
 	{
 	}

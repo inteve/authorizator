@@ -5,27 +5,28 @@
 
 	interface IAuthorizator
 	{
+		const DENY = 0;
+		const OWNER = 1;
+		const ADMIN = 2;
+
+
 		/**
-		 * Is user allowed to perform given action with given resource.
-		 *
-		 * @param  mixed
-		 * @param  string for example 'view', 'edit'
-		 * @param  mixed|NULL array, object, array of objects,...
+		 * @param  string|callable $resource  for example 'post', 'post.create' or callback
+		 * @param  object|NULL $object
 		 * @return bool
-		 * @throws \Inteve\Security\InvalidArgumentException
+		 * @throws InvalidArgumentException
+		 * @throws InvalidValueException
 		 */
-		function isAllowed($resource, $action, $parameters = NULL);
+		function isAllowed($resource, $object = NULL);
 
 
 		/**
-		 * Is user allowed to perform given action with given resource.
-		 *
-		 * @param  mixed
-		 * @param  string for example 'view', 'edit'
-		 * @param  mixed|NULL array, object, array of objects,...
+		 * @param  string|callable $resource  for example 'post', 'post.create' or callback
+		 * @param  object|NULL $object
 		 * @return void
-		 * @throws \Inteve\Security\InvalidArgumentException
-		 * @throws \Inteve\Security\AuthorizationException
+		 * @throws InvalidArgumentException
+		 * @throws InvalidValueException
+		 * @throws AuthorizationException
 		 */
-		function authorize($resource, $action, $parameters = NULL);
+		function authorize($resource, $object = NULL);
 	}

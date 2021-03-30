@@ -1,7 +1,7 @@
 Inteve\Authorizator
 ===================
 
-Own authorizator for Nette application.
+Authorizator for Nette application.
 
 
 Installation
@@ -13,7 +13,7 @@ Installation
 composer require inteve/authorizator
 ```
 
-Library requires PHP 5.3 or later.
+Library requires PHP 5.6 or later.
 
 ------------------------------
 
