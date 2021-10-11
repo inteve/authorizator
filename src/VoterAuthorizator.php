@@ -29,6 +29,7 @@
 		/**
 		 * @param  string $resource
 		 * @return bool
+		 * @deprecated
 		 */
 		public function isAdmin($resource)
 		{
