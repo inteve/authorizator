@@ -5,7 +5,9 @@
 
 	interface IVoter
 	{
+		/** @deprecated use ALLOW */
 		const GRANTED = TRUE;
+		const ALLOW = TRUE;
 		const DENY = FALSE;
 		const ABSTAIN = NULL;
 
