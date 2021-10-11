@@ -5,9 +5,16 @@
 
 	interface IAuthorizator
 	{
+		/** @deprecated use DENIED */
 		const DENY = 0;
+		/** @deprecated use LIMITED */
 		const OWNER = 1;
+		/** @deprecated use UNLIMITED */
 		const ADMIN = 2;
+
+		const DENIED = 0;
+		const LIMITED = 1;
+		const UNLIMITED = 2;
 
 
 		/**

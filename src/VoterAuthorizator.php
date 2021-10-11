@@ -32,7 +32,7 @@
 		 */
 		public function isAdmin($resource)
 		{
-			return $this->adapter->getAccessLevel($resource) === IAuthorizator::ADMIN;
+			return $this->adapter->getAccessLevel($resource) === IAuthorizator::UNLIMITED;
 		}
 
 
@@ -62,7 +62,7 @@
 		 */
 		public function authorize($resource, $object = NULL)
 		{
-			$access = IAuthorizator::DENY;
+			$access = IAuthorizator::DENIED;
 
 			if (is_string($resource)) {
 				$access = $this->adapter->getAccessLevel($resource);
@@ -71,7 +71,7 @@
 				$res = call_user_func($resource, $this->user, $object);
 
 				if (is_bool($res)) {
-					$access = $res ? IAuthorizator::ADMIN : IAuthorizator::DENY;
+					$access = $res ? IAuthorizator::UNLIMITED : IAuthorizator::DENIED;
 
 				} else {
 					throw new InvalidValueException('Resource callback must return bool, ' . gettype($res) . ' returned.');
@@ -81,16 +81,16 @@
 				throw new InvalidValueException('Invalid resource type.');
 			}
 
-			if ($access === IAuthorizator::ADMIN) {
+			if ($access === IAuthorizator::UNLIMITED) {
 				return;
 			}
 
-			if ($access === IAuthorizator::DENY) {
+			if ($access === IAuthorizator::DENIED) {
 				$label = is_string($resource) ? "'$resource'" : 'callback';
 				throw new AuthorizationException("Denied for resource $label.");
 			}
 
-			if ($access !== IAuthorizator::OWNER) {
+			if ($access !== IAuthorizator::LIMITED) {
 				throw new InvalidValueException("Invalid access level '$access'.");
 			}
 
