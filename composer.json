@@ -22,6 +22,6 @@
 		"nette/utils": "^2.4 || ^3.0 || ^4.0"
 	},
 	"require-dev": {
-		"nette/tester": "^2.0"
+		"nette/tester": "^2.5"
 	}
 }
