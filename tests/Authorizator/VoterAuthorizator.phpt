@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Tester\Assert;
 use Inteve\Authorizator\IAuthorizator;
 use Inteve\Authorizator\IUser;
